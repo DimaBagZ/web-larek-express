@@ -1,12 +1,15 @@
 import mongoose, { Schema, Document } from 'mongoose';
 
+// Интерфейс для файлов
+export interface IFile {
+  fileName: string;
+  originalName: string;
+}
+
 // Интерфейс для продукта
 export interface IProduct extends Document {
   title: string;
-  image: {
-    fileName: string;
-    originalName: string;
-  };
+  image: IFile;
   category: string;
   description?: string;
   price?: number | null;

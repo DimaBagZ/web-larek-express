@@ -16,6 +16,7 @@
 - **nginx/** — конфигурация nginx (если используется)
 
 # Web-larek-express:
+
 Это серверная часть учебного интернет-магазина, реализованная на Node.js с использованием TypeScript и MongoDB. Проект построен по модульному принципу: каждая часть отвечает за свою зону ответственности, что облегчает поддержку и масштабирование.
 
 ### Метод разработки
@@ -40,8 +41,24 @@
 ### 1. Клонирование репозитория
 
 ```bash
- git clone <URL-ВАШЕГО-РЕПОЗИТОРИЯ>
- cd web-larek-express
+git clone <URL-ВАШЕГО-РЕПОЗИТОРИЯ>
+cd web-larek-express
+```
+
+### 2. Настройка базы данных
+
+**Вариант A: MongoDB локально**
+
+```bash
+# Установить MongoDB и запустить
+mongod
+```
+
+**Вариант B: Docker Compose (рекомендуется)**
+
+```bash
+# Из корня проекта
+docker-compose up -d
 ```
 
 ---
@@ -54,6 +71,8 @@
 cd backend
 npm install
 ```
+
+> **Примечание**: Все необходимые пакеты типизации (`@types/*`) уже включены в `devDependencies` и будут установлены автоматически.
 
 ### 3. Сборка проекта (если требуется)
 
@@ -74,6 +93,12 @@ npm run build
 cp .env.example .env
 ```
 
+- **ВАЖНО**: Добавьте в `.env` файл переменную для лимита файлов:
+
+```env
+FILE_SIZE_LIMIT=5242880
+```
+
 - Пример содержимого `.env.example`:
   - DB_ADDRESS=mongodb://127.0.0.1:27017/weblarek
   - PORT=3000
@@ -81,8 +106,10 @@ cp .env.example .env
   - AUTH_REFRESH_TOKEN_SECRET=your_refresh_secret
   - AUTH_ACCESS_TOKEN_EXPIRY=10m
   - AUTH_REFRESH_TOKEN_EXPIRY=7d
-  - TMP_DIR=public/tmp
-  - IMAGES_DIR=public/images
+  - UPLOAD_PATH=images
+  - UPLOAD_PATH_TEMP=temp
+  - ORIGIN_ALLOW=http://localhost:5173
+  - **FILE_SIZE_LIMIT=5242880** (5MB в байтах)
 
 ### 5. Запуск backend-сервера
 
@@ -99,18 +126,26 @@ npm run start
 npm run dev
 ```
 
+### 6. Проверка качества кода
+
+```bash
+npm run lint
+```
+
+> **Примечание**: Проект настроен с ESLint для поддержания единого стиля кода.
+
 ---
 
 ## Frontend (папка frontend)
 
-### 6. Установка зависимостей
+### 7. Установка зависимостей
 
 ```bash
 cd ../frontend
 npm install
 ```
 
-### 7. Настройка переменных окружения
+### 8. Настройка переменных окружения
 
 - Создайте файл `.env` в папке frontend (если требуется) и укажите адрес backend:
 
@@ -120,7 +155,7 @@ VITE_API_ORIGIN=http://localhost:3000
 
 - Если переменная не указана, по умолчанию будет использоваться http://localhost:3000 (см. src/utils/constants.ts).
 
-### 8. Запуск frontend
+### 9. Запуск frontend
 
 - Для разработки:
 
@@ -139,9 +174,10 @@ npm run preview
 
 ## ВАЖНО: Порядок запуска
 
-1. Сначала запустите backend (см. шаг 5 выше).
-2. Затем — frontend (см. шаг 8 выше).
-3. После этого фронтенд будет обращаться к backend по адресу, указанному в VITE_API_ORIGIN.
+1. Сначала запустите базу данных (см. шаг 2 выше).
+2. Затем запустите backend (см. шаг 5 выше).
+3. После этого — frontend (см. шаг 9 выше).
+4. После этого фронтенд будет обращаться к backend по адресу, указанному в VITE_API_ORIGIN.
 
 ---
 

@@ -2,6 +2,9 @@ import multer from 'multer';
 import path from 'path';
 import BadRequestError from '../errors/bad-request-error';
 
+// Получаем лимит размера файла из переменных окружения (по умолчанию 5MB)
+const FILE_SIZE_LIMIT = parseInt(process.env.FILE_SIZE_LIMIT || '5242880', 10);
+
 // Разрешённые типы файлов
 const ALLOWED_TYPES = [
   'image/png',
@@ -35,11 +38,11 @@ function fileFilter(_req: any, _file: any, cb: any) {
   }
 }
 
-// Middleware для загрузки одного файла с лимитом 5 МБ
+// Middleware для загрузки одного файла с настраиваемым лимитом
 const fileMiddleware = multer({
   storage,
   fileFilter,
-  limits: { fileSize: 5 * 1024 * 1024 },
+  limits: { fileSize: FILE_SIZE_LIMIT },
 });
 
 export default fileMiddleware;
