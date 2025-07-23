@@ -1,4 +1,5 @@
 import jwt from 'jsonwebtoken';
+import { StringValue } from 'ms';
 
 const {
   AUTH_ACCESS_TOKEN_SECRET = 'access_secret',
@@ -10,14 +11,14 @@ const {
 // Генерация access-токена
 export function generateAccessToken(payload: object) {
   return jwt.sign(payload, AUTH_ACCESS_TOKEN_SECRET, {
-    expiresIn: AUTH_ACCESS_TOKEN_EXPIRY,
+    expiresIn: AUTH_ACCESS_TOKEN_EXPIRY as StringValue,
   });
 }
 
 // Генерация refresh-токена
 export function generateRefreshToken(payload: object) {
   return jwt.sign(payload, AUTH_REFRESH_TOKEN_SECRET, {
-    expiresIn: AUTH_REFRESH_TOKEN_EXPIRY,
+    expiresIn: AUTH_REFRESH_TOKEN_EXPIRY as StringValue,
   });
 }
 
