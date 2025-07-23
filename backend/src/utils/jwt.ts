@@ -1,11 +1,11 @@
-import jwt from "jsonwebtoken";
-import { StringValue } from "ms";
+import jwt from 'jsonwebtoken';
+import { StringValue } from 'ms';
 
 const {
-  AUTH_ACCESS_TOKEN_SECRET = "access_secret",
-  AUTH_REFRESH_TOKEN_SECRET = "refresh_secret",
-  AUTH_ACCESS_TOKEN_EXPIRY = "10m",
-  AUTH_REFRESH_TOKEN_EXPIRY = "7d",
+  AUTH_ACCESS_TOKEN_SECRET = 'access_secret',
+  AUTH_REFRESH_TOKEN_SECRET = 'refresh_secret',
+  AUTH_ACCESS_TOKEN_EXPIRY = '10m',
+  AUTH_REFRESH_TOKEN_EXPIRY = '7d',
 } = process.env;
 
 // Генерация access-токена
