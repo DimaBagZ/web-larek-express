@@ -15,7 +15,7 @@ export default function Header() {
 		<header className={styles.header}>
 			<div className={styles.header__container}>
 				<Link className={styles.header__logo} to={AppRoute.Main}>
-					<img className={styles['header__logo-image']} src="/logo.svg" alt="Film! logo" />
+					<img className={styles['header__logo-image']} src={`${import.meta.env.BASE_URL}logo.svg`} alt="Film! logo" />
 				</Link>
 				{!user && <Link to={{pathname: AppRoute.Admin}}  className={clsx(styles.header__icon, styles.header__login) }>
 				</Link>}
