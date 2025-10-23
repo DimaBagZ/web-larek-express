@@ -65,6 +65,12 @@ class Api {
 		try {
 			return await this.request<T>(endpoint, options);
 		} catch (error) {
+			// Если ошибка 401 и нет токена, просто возвращаем ошибку
+			if ((error as any)?.statusCode === 401 && !getCookie('accessToken')) {
+				return Promise.reject(error);
+			}
+			
+			try {
 				const refreshData = await this.refreshToken();
 				if (!refreshData.success) {
 					return Promise.reject(refreshData);
@@ -77,8 +83,11 @@ class Api {
 						Authorization: `Bearer ${getCookie('accessToken')}`
 					},
 				});
+			} catch (refreshError) {
+				return Promise.reject(refreshError);
 			}
 		}
+	}
 }
 
 export interface IWebLarekAPI {
