@@ -7,7 +7,10 @@ import tsconfigPaths from "vite-tsconfig-paths";
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [svgr(), react(), tsconfigPaths({ root: __dirname })],
-  base: process.env.NODE_ENV === "production" || process.env.GITHUB_ACTIONS ? "/web-larek-express/" : "/",
+  base:
+    process.env.NODE_ENV === "production" || process.env.GITHUB_ACTIONS
+      ? "/web-larek-express/"
+      : "/",
   resolve: {
     alias: {
       $fonts: resolve("./src/vendor/fonts"),
