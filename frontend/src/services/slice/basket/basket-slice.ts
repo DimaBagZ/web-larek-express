@@ -17,15 +17,23 @@ export const basketSlice = createSlice({
 				return state
 			} else {
 				state.items.push(payload);
+				state.totalCount++;
 			}
-			state.totalCount++;
 		},
 		removeProductCart: (state, action: PayloadAction<string>) => {
-			state.items = state.items.filter(item => {
-				return item._id !== action.payload;
-			});
+			const itemExists = state.items.find(item => item._id === action.payload);
+			if (itemExists) {
+				state.items = state.items.filter(item => {
+					return item._id !== action.payload;
+				});
+				state.totalCount--;
+			}
 		},
 		resetBasket: () => initialState,
+		clearBasket: (state) => {
+			state.items = [];
+			state.totalCount = 0;
+		},
 	},
 	selectors: {
 		selectBasketItems: (state:IBasket) => state.items,

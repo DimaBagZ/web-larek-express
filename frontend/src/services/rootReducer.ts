@@ -9,6 +9,7 @@ import { userSlice } from './slice/user/user-slice';
 const persistConfigBasket = {
 	key: 'basket',
 	storage: storage,
+	whitelist: ['items', 'totalCount'], // Только эти поля сохраняем
 }
 const persistConfigOrder = {
 	key: 'order',
