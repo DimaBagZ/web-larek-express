@@ -6,7 +6,7 @@
   "scripts": {
     "lint": "npx eslint src/**/*.ts",
     "build": "tsc",
-    "postbuild": "xcopy src\\public dist\\public /E /I /Y",
+    "postbuild": "cp -r src/public dist/ || xcopy src\\public dist\\public /E /I /Y",
     "dev": "npx nodemon -L src/app.ts ",
     "start": "ts-node src/app.ts",
     "test": "echo \"Error: no test specified\" && exit 1"
