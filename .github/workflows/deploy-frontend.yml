@@ -34,7 +34,8 @@ jobs:
           VITE_API_ORIGIN: https://web-larek-express.onrender.com
 
       - name: Deploy to GitHub Pages
-        uses: actions/deploy-pages@v4
+        uses: peaceiris/actions-gh-pages@v3
         if: github.ref == 'refs/heads/admin'
         with:
-          path: ./frontend/dist
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./frontend/dist
