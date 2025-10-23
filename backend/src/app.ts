@@ -17,14 +17,14 @@ import errorHandler from './middlewares/errorHandler';
 // Загружаем переменные окружения из .env
 dotenv.config();
 
-const { DB_ADDRESS = 'mongodb://127.0.0.1:27017/weblarek', PORT = 3000 } = process.env;
+const { DB_ADDRESS = 'mongodb://127.0.0.1:27017/weblarek', PORT = process.env.PORT || 3000 } = process.env;
 
 const app = express();
 
 // Подключаем CORS для разрешения запросов с других источников
 app.use(
   cors({
-    origin: 'http://localhost:5173', // только фронт
+    origin: ['http://localhost:5173', 'https://dimabagz.github.io'], // фронт и GitHub Pages
     credentials: true, // разрешаем cookie
   }),
 );
