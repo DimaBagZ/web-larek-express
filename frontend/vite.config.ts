@@ -7,7 +7,7 @@ import tsconfigPaths from "vite-tsconfig-paths";
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [svgr(), react(), tsconfigPaths({ root: __dirname })],
-  base: '/web-larek-express/',
+  // base: "/web-larek-express/", // Временно отключено для локальной разработки
   resolve: {
     alias: {
       $fonts: resolve("./src/vendor/fonts"),
