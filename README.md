@@ -1,5 +1,57 @@
 # WebLarek — интернет-магазин (Fullstack)
 
+## 🌐 Демо проекта
+
+**🚀 [Живая демо-версия фронтенда](https://dimabagz.github.io/web-larek-express/)** - Полнофункциональный интернет-магазин с админ-панелью
+
+**🔧 [API Backend](https://web-larek-express.onrender.com)** - REST API для управления товарами и заказами
+
+> **⚠️ Важно**: Backend размещен на бесплатном хостинге Render и может "засыпать" при отсутствии активности. При первом обращении к API может потребоваться **30-60 секунд** для пробуждения сервера.
+
+## 🏗️ Инфраструктура демо
+
+Для демонстрации проекта использованы следующие онлайн-сервисы:
+
+- **🗄️ MongoDB Atlas** - облачная база данных для хранения товаров и пользователей
+- **☁️ Render** - хостинг backend API (Node.js/Express)
+- **📦 GitHub Pages** - хостинг frontend приложения (React/Vite)
+- **🔐 JWT Authentication** - система авторизации с refresh токенами
+
+## 📸 Скриншоты проекта
+
+### Главная страница
+<img width="1904" height="911" alt="image" src="https://github.com/user-attachments/assets/369e4145-4414-45af-9b05-45d92794b08b" />
+
+_Главная страница интернет-магазина с каталогом товаров_
+
+### Админ-панель
+<img width="893" height="778" alt="image" src="https://github.com/user-attachments/assets/96511e01-442d-4c84-8210-2dffc277448f" />
+
+_Панель администратора для управления товарами_
+
+### Добавления товара
+<img width="899" height="917" alt="image" src="https://github.com/user-attachments/assets/c7583aa1-6fdb-4512-981b-d874f411313b" />
+
+_Форма добавления и редактирования товаров_
+
+### Страница входа
+<img width="659" height="619" alt="image" src="https://github.com/user-attachments/assets/64d79349-3899-4ae0-a525-1344542cc84f" />
+
+_Форма авторизации в системе_
+
+### Регистрация
+<img width="626" height="731" alt="image" src="https://github.com/user-attachments/assets/fdc05d83-9015-4570-bff9-e1dd3b47a870" />
+
+_Форма регистрации в системе_
+
+### Карзина и оформление ордера
+<img width="861" height="452" alt="image" src="https://github.com/user-attachments/assets/064c6bc1-76d7-4bf7-bdb2-88628ad0939e" />
+<img width="871" height="541" alt="image" src="https://github.com/user-attachments/assets/ed4c5fec-ba7c-4d3f-aeec-af3a2a9852fe" />
+<img width="878" height="598" alt="image" src="https://github.com/user-attachments/assets/80320030-3a26-48bb-aff1-40dd5552b175" />
+<img width="867" height="452" alt="image" src="https://github.com/user-attachments/assets/bba3e25c-8daa-4a8d-a8fc-da9243de0854" />
+
+_Модальные окна с формой для корзины и ордера_
+
 ## О проекте
 
 **WebLarek** — учебный fullstack-проект интернет-магазина. Включает backend на Node.js/TypeScript/MongoDB и frontend на React/TypeScript/Vite. Проект построен по модульному принципу, что обеспечивает чистую архитектуру, простоту поддержки и масштабирования.
