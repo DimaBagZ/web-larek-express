@@ -2,13 +2,36 @@
   @include mixins.container;
   @include mixins.grid(600px, 24px);
 
+  @media (max-width: 768px) {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-gap: 1.5rem;
+  }
+
+  @media (max-width: 480px) {
+    padding-left: 1rem;
+    padding-right: 1rem;
+    grid-template-columns: 1fr;
+    grid-gap: 1rem;
+    max-width: 100%;
+  }
+
   &__item {
     border: none;
     border-radius: $defaultBorderRadius;
     @include mixins.selectable($secondary, 2px, $primaryLight);
 
+    @media (max-width: 480px) {
+      border-radius: 1rem;
+    }
+
     &::after {
       border-radius: 0.8rem;
+
+      @media (max-width: 480px) {
+        border-radius: 0.5rem;
+      }
     }
   }
 }

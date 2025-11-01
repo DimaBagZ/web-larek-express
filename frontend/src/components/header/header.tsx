@@ -38,6 +38,7 @@ export default function Header() {
                 logoutUser()
                   .unwrap()
                   .then(() => resetUser())
+                  .catch(() => resetUser())
               }
               className={clsx(styles.header__icon, styles.header__logout)}
             >

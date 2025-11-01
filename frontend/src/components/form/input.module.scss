@@ -2,13 +2,37 @@
   &__field {
     @include mixins.flex(column);
     gap: 1.5em;
+
+    @media (max-width: 768px) {
+      gap: 1em;
+    }
+
+    @media (max-width: 480px) {
+      gap: 0.75em;
+    }
   }
   &__label {
     flex-grow: 1;
+
+    @media (max-width: 768px) {
+      font-size: 1.125rem;
+    }
+
+    @media (max-width: 480px) {
+      font-size: 1rem;
+    }
   }
 
   &__error {
     color: $error;
+
+    @media (max-width: 768px) {
+      font-size: 0.875rem;
+    }
+
+    @media (max-width: 480px) {
+      font-size: 0.75rem;
+    }
   }
 
   &__input {
@@ -21,6 +45,18 @@
     width: 100%;
     box-sizing: border-box;
 
+    @media (max-width: 768px) {
+      padding: 1rem 1.5rem;
+      border-radius: 1rem;
+      font-size: 1rem;
+    }
+
+    @media (max-width: 480px) {
+      padding: 0.75rem 1rem;
+      border-radius: 0.75rem;
+      font-size: 0.875rem;
+    }
+
     &:focus {
       border-color: $primaryLight;
       outline: none;
@@ -30,15 +66,21 @@
       color: $hover;
     }
 
-    &[type=number]::-webkit-inner-spin-button {
+    &[type="number"]::-webkit-inner-spin-button {
       appearance: none;
       -webkit-appearance: none;
     }
-
-    
   }
 }
 textarea.form__input {
   resize: none;
   min-height: 225px;
+
+  @media (max-width: 768px) {
+    min-height: 150px;
+  }
+
+  @media (max-width: 480px) {
+    min-height: 120px;
+  }
 }

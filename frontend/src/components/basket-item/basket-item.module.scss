@@ -1,17 +1,32 @@
-
 .basket {
   &__title {
     font-size: $titleFontSize;
     font-weight: 500;
     margin: 0;
     flex-grow: 1;
+
+    @media (max-width: 768px) {
+      font-size: 1.5rem;
+    }
+
+    @media (max-width: 480px) {
+      font-size: 1.25rem;
+    }
   }
-  
+
   &__item {
     border-bottom: 1px solid $primary;
     padding: 1.5rem 0;
     display: flex;
     align-items: center;
+
+    @media (max-width: 768px) {
+      padding: 1rem 0;
+    }
+
+    @media (max-width: 480px) {
+      padding: 0.75rem 0;
+    }
 
     &_index {
       @include mixins.flex(row);
@@ -24,13 +39,41 @@
       background-color: $primary;
       color: white;
       margin-right: 1rem;
+
+      @media (max-width: 768px) {
+        width: 40px;
+        height: 40px;
+        font-size: 1.125rem;
+        margin-right: 0.75rem;
+      }
+
+      @media (max-width: 480px) {
+        width: 32px;
+        height: 32px;
+        font-size: 1rem;
+        margin-right: 0.5rem;
+      }
     }
 
     &_delete {
-      @include mixins.icon(2rem, 'trash');
+      @include mixins.icon(2rem, "trash");
       @include mixins.link($hover, white);
       opacity: 0.5;
       margin-left: 4rem;
+
+      @media (max-width: 768px) {
+        width: 1.5rem;
+        height: 1.5rem;
+        font-size: 1.5rem;
+        margin-left: auto;
+      }
+
+      @media (max-width: 480px) {
+        width: 1.25rem;
+        height: 1.25rem;
+        font-size: 1.25rem;
+        margin-left: auto;
+      }
     }
   }
 }

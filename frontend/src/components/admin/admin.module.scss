@@ -1,49 +1,108 @@
 .admin {
-	&__container {
-		@include mixins.container(45px,45px);
-	}
-	&__products {
-		@include mixins.flex(column);
-	}
-	&__title {
-		font-size: $titleFontSize;
-	}
+  &__container {
+    @include mixins.container(45px, 45px);
 
-	&__header {
-		@include mixins.flex(row);
-		align-items: center;
-		justify-content: space-between;
-	}
+    @media (max-width: 768px) {
+      padding-left: 1.5rem;
+      padding-right: 1.5rem;
+      padding-top: 2rem;
+      padding-bottom: 2rem;
+    }
 
-	&__button {
-		align-self: flex-start;
+    @media (max-width: 480px) {
+      padding-left: 1rem;
+      padding-right: 1rem;
+      padding-top: 1.5rem;
+      padding-bottom: 1.5rem;
+    }
+  }
+  &__products {
+    @include mixins.flex(column);
+    width: 100%;
+    box-sizing: border-box;
+  }
+  &__title {
+    font-size: $titleFontSize;
 
-		&_alt {
-			@include mixins.button(white, $primaryLight, $primaryLight);
-			border: $defaultBorder;
-			margin-left: auto;
-			&:hover {
-				border: $hoverBorder;
-			}
-		}
-	}
-	
-	&__buttons {
-		@include mixins.flex(row);
-	}
+    @media (max-width: 768px) {
+      font-size: 2rem;
+    }
 
+    @media (max-width: 480px) {
+      font-size: 1.5rem;
+    }
+  }
 
-	&__file {	
-		@include mixins.button(white, $primaryLight, $primaryLight);
-		border: $defaultBorder;
-		&:hover {
-			border: $hoverBorder;
-		}
-	}
+  &__header {
+    @include mixins.flex(row);
+    align-items: center;
+    justify-content: space-between;
+
+    @media (max-width: 768px) {
+      flex-direction: column;
+      gap: 1rem;
+      align-items: flex-start;
+    }
+
+    @media (max-width: 480px) {
+      gap: 0.75rem;
+    }
+  }
+
+  &__button {
+    align-self: flex-start;
+
+    @media (max-width: 768px) {
+      width: 100%;
+    }
+
+    &_alt {
+      @include mixins.button(white, $primaryLight, $primaryLight);
+      border: $defaultBorder;
+      margin-left: auto;
+      &:hover {
+        border: $hoverBorder;
+      }
+
+      @media (max-width: 768px) {
+        margin-left: 0;
+        width: 100%;
+      }
+    }
+  }
+
+  &__buttons {
+    @include mixins.flex(row);
+
+    @media (max-width: 768px) {
+      flex-direction: column;
+      gap: 1rem;
+      width: 100%;
+    }
+
+    @media (max-width: 480px) {
+      gap: 0.75rem;
+    }
+  }
+
+  &__file {
+    @include mixins.button(white, $primaryLight, $primaryLight);
+    border: $defaultBorder;
+    &:hover {
+      border: $hoverBorder;
+    }
+
+    @media (max-width: 768px) {
+      width: 100%;
+    }
+  }
 }
 
-
 .label__price {
-	align-self: flex-start;
-	width: 50%;
+  align-self: flex-start;
+  width: 50%;
+
+  @media (max-width: 768px) {
+    width: 100%;
+  }
 }

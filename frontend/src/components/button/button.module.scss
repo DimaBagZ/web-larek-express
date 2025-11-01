@@ -2,4 +2,15 @@
   @include mixins.button($primary, white, $hover);
   border: 0;
   text-decoration: none;
+  box-sizing: border-box;
+
+  @media (max-width: 768px) {
+    padding: 1rem 2rem;
+    font-size: 1.125rem;
+  }
+
+  @media (max-width: 480px) {
+    padding: 0.875rem 1.5rem;
+    font-size: 1rem;
+  }
 }
