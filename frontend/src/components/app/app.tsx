@@ -34,7 +34,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import { PersistGate } from 'redux-persist/integration/react';
 
 const App = () => (
-	<BrowserRouter>
+	<BrowserRouter basename={import.meta.env.BASE_URL}>
 		<ProviderComponent>
 			<div className={styles.app}>
 				<RouteComponent />
